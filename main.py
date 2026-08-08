@@ -7,10 +7,12 @@ from langchain_groq import ChatGroq
 
 os.environ["GROQ_API_KEY"] = groq_api_key
 
-st.title("LangChain Demo with Groq API")
 
-input_text = st.text_input("Search the topic you want")
+##Streamlit framework
+st.title("Celebrity Search Application with LangChain and Groq")
+input_text = st.text_input("Search for a celebrity")
 
+## Groq LLM
 llm = ChatGroq(
     model="llama-3.1-8b-instant",
     temperature=0.8
