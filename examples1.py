@@ -31,8 +31,14 @@ second_input_prompt = PromptTemplate(
     template="when was {person} born?",
 )
 chain2 = LLMChain(llm=llm, prompt=second_input_prompt, verbose=True, output_key="dob")
+third_input_prompt = PromptTemplate(
+    input_variables=["dob"],
+    template="Mention 5 major events happened around {dob} in the world.",
+)
+chain3 = LLMChain(llm=llm, prompt=third_input_prompt, verbose=True, output_key="description")
+
 parent_chain = SequentialChain(
-    chains=[chain, chain2], input_variables=['name'], output_variables=['person','dob'], verbose=True)
+    chains=[chain, chain2, chain3], input_variables=['name'], output_variables=['person','dob','description'], verbose=True)
 
 if input_text:
     st.write(parent_chain.invoke({"name": input_text}))
