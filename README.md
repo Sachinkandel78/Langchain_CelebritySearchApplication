@@ -1,0 +1,2 @@
+# Langchain_CelebritySearchApplication
+Celebrity Search Application
