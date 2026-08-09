@@ -55,3 +55,5 @@ if input_text:
 
     with st.expander('Description'):
         st.write(description_memory.buffer)
+
+// Extentension of langchain to rag 
